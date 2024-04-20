@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator InstanceOf</title>
+  </head>
+  <body>
+    <script>
+      class Employee {
+        constructor(name) {
+          this.name = name;
+        }
+
+        sayHello() {
+          console.log(`Hello my name is ${this.name}`);
+        }
+      }
+
+      class Manager extends Employee {
+        constructor(name, age) {
+          super(name);
+          this.age = age;
+        }
+
+        sayHello() {
+          console.log(`Hello my name is ${this.name} my age is ${this.age}`);
+        }
+      }
+
+      const budi = new Employee("Budi");
+      const elmo = new Manager("Elmo", 20);
+
+      console.log(budi instanceof Employee); // True
+      console.log(budi instanceof Manager); // False
+      console.log(elmo instanceof Employee); // True
+      console.log(elmo instanceof Manager); // True
+    </script>
+  </body>
+</html>
