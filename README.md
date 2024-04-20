@@ -5,6 +5,7 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar ma
 - 📖 JS Dasar
 - 📦 OOP
 - 📚 Standard Library
+- ✈️ JS Modules
 - ⚠️ Coming Soon
 
 ## 📖 Referensi
