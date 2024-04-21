@@ -16,10 +16,32 @@
 // previousSibling : Node
 // previousElementSibling : Element
 
-const close = document.querySelectorAll(".close");
+// const close = document.querySelectorAll(".close");
 
-close.forEach((i) => {
-  i.addEventListener("click", (e) => {
-    e.target.parentNode.parentNode.classList.add("d-none");
-  });
+// close.forEach((i) => {
+//   i.addEventListener("click", (e) => {
+//     e.target.parentNode.parentNode.classList.add("d-none");
+
+//     // Prevent Default
+//     e.preventDefault();
+
+//     // method mengatasi event Bubbling
+//     e.stopPropagation();
+//   });
+// });
+
+// Event Bubbling
+// const card = document.querySelectorAll(".card");
+// card.forEach((i) => {
+//   i.addEventListener("click", (e) => {
+//     alert("coba");
+//   });
+// });
+
+// cara 2 - versi efektifnya
+const container = document.querySelector(".container");
+
+container.addEventListener("click", (e) => {
+  e.target.classList.contains == "close" ? "True" : (e.target.parentElement.parentElement.style.display = "none");
+  e.preventDefault();
 });
