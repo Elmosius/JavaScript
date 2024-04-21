@@ -42,6 +42,8 @@
 const container = document.querySelector(".container");
 
 container.addEventListener("click", (e) => {
-  e.target.classList.contains == "close" ? "True" : (e.target.parentElement.parentElement.style.display = "none");
-  e.preventDefault();
+  if (e.target.classList.contains("close")) {
+    e.target.parentElement.parentElement.style.display = "none";
+    e.preventDefault();
+  }
 });
