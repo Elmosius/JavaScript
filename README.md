@@ -7,6 +7,7 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar ma
 - 📚 Standard Library
 - 🔥 DOM
 - ✈️ JS Modules
+- ⚛️ React
 - ⚠️ Coming Soon
 
 ## 📖 Referensi
