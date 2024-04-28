@@ -8,7 +8,6 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar ma
 - 🔥 DOM
 - ✈️ JS Modules
 - 🏫 Latihan (Codewar) 
-- ⚛️ React
 - ⚠️ Coming Soon
 
 ## 📖 Referensi
