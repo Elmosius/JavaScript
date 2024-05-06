@@ -7,8 +7,9 @@
   </head>
   <body>
     <script>
-      str = "g";
-      x = str.split("").reverse().join("");
+      s = [0];
+      x = s.reduce((a, b) => a + b) % 2 ? "odd" : "even";
+
       console.info(x);
     </script>
   </body>
