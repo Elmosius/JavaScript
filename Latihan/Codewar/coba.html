@@ -7,10 +7,18 @@
   </head>
   <body>
     <script>
-      s = [0];
-      x = s.reduce((a, b) => a + b) % 2 ? "odd" : "even";
+      nbPetals = 432;
+      const x = {
+        0: "not at all",
+        1: "I love you",
+        2: "a little",
+        3: "a lot",
+        4: "passionately",
+        5: "madly",
+        6: "not at all",
+      };
 
-      console.info(x);
+      console.info(nbPetals > 6 ? x[nbPetals % 6 +1]  : x[nbPetals - 1]);
     </script>
   </body>
 </html>
