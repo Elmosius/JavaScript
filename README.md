@@ -7,7 +7,8 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar ma
 - 📚 Standard Library
 - 🔥 DOM
 - ✈️ JS Modules
-- 🏫 Latihan (Codewar) 
+- 🏫 Latihan (Codewar)
+- 🔰 VueJs
 - ⚠️ Coming Soon
 
 ## 📖 Referensi
