@@ -7,18 +7,21 @@
   </head>
   <body>
     <script>
-      nbPetals = 432;
+      weight = 80;
+      height = 1.8;
+      const bmi = Math.round(weight / height ** 2);
       const x = {
-        0: "not at all",
-        1: "I love you",
-        2: "a little",
-        3: "a lot",
-        4: "passionately",
-        5: "madly",
-        6: "not at all",
+        1: "Underweight",
+        2: "Normal",
+        3: "Overweight",
+        4: "Obese",
       };
+      if (bmi <= 18.5) return x[1];
+      else if (bmi <= 25) return x[2];
+      else if (bmi <= 30) return x[3];
+      else return x[4];
 
-      console.info(nbPetals > 6 ? x[nbPetals % 6 +1]  : x[nbPetals - 1]);
+      console.info(x[2]);
     </script>
   </body>
 </html>

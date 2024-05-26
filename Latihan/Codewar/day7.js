@@ -116,5 +116,3 @@ function howMuchILoveYou(nbPetals) {
 
   return nbPetals > 6 ? x[nbPetals % 6] : x[nbPetals];
 }
-
-//**** Soal No 83*****//
