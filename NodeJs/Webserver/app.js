@@ -2,6 +2,18 @@ const http = require("http");
 const fs = require("fs");
 const port = 3000;
 
+const renderHTML = (path, res) => {
+  fs.readFile(path, (err, data) => {
+    if (err) {
+      res.writeHead(404);
+      res.write("Error 404");
+    } else {
+      res.write(data);
+    }
+    res.end();
+  });
+};
+
 http
   .createServer((req, res) => {
     const url = req.url;
@@ -9,22 +21,16 @@ http
       "Content-Type": "text/html",
     });
 
-    if (url === "/about") {
-      res.write("<h1>Ini adalah halaman About</h1>");
-      res.end();
-    } else if (url === "/contact") {
-      res.write("<h1>Ini adalah halaman About</h1>");
-      res.end();
-    } else {
-      fs.readFile("./index.html", (err, data) => {
-        if (err) {
-          res.writeHead(404);
-          res.write("Error 404");
-        } else {
-          res.write(data);
-        }
-        res.end();
-      });
+    switch (url) {
+      case "/about":
+        renderHTML("./about.html", res);
+        break;
+      case "/contact":
+        renderHTML("./contact.html", res);
+        break;
+      default:
+        renderHTML("./index.html", res);
+        break;
     }
   })
   .listen(port, () => {
