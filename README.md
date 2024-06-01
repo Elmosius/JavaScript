@@ -2,11 +2,7 @@
 Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar mandiri saya tentang hal yang berkaitan dengan JavaScript 
 
 ## 📖 Materi
-- 📖 JS Dasar
-- 📦 OOP
-- 📚 Standard Library
-- 🔥 DOM
-- ✈️ JS Modules
+- 📖 JS Basic
 - 📃 Latihan (Codewar)
 - 🎒 NodeJs
 - 🔰 VueJs
