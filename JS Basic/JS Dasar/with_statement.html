@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>With Statement</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        nama: ["Elmo", "Asep"],
+        umur: "16",
+        berat: "50",
+      };
+
+      const nama = "Elmos";
+      const umur = "15";
+
+      with (person) {
+        console.info(nama);
+        console.info(umur);
+        console.info(berat);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getter dan Setter</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, age) {
+          this._name = name;
+          this._age = age;
+        }
+
+        // Getter
+        get name() {
+          return this._name;
+        }
+
+        // Setter
+        set name(newName) {
+          if (typeof newName === "string") {
+            this._name = newName;
+          } else {
+            console.log("Invalid input! Please enter a valid string.");
+          }
+        }
+      }
+
+      const elmo = new Person("Elmo", 15);
+      elmo.name = "Suli";
+      console.info(elmo._name, elmo._age);
+    </script>
+  </body>
+</html>
