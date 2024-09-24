@@ -7,13 +7,21 @@
   </head>
   <body>
     <script>
-      names = []
+      function binToDec(bin) {
+        let x = bin.length;
+        let y = x - 1;
+        let hasil = 0;
+        for (let i = 0; i < x; i++) {
+          if (bin[i] == "1") {
+            hasil += 2 ** y;
+          }
+          y--;
+        }
 
-      names.forEach((e)=>{
-        
-      })
+        return hasil;
+      }
 
-      console.info(x);
+      console.info(binToDec("11"));
     </script>
   </body>
 </html>
