@@ -1,4 +1,6 @@
 <script setup>
+import { inject } from "vue";
+
 const { nama } = defineProps({
   nama: {
     type: String,
@@ -21,12 +23,14 @@ function isLoading() {
   }
 }
 
-console.info(nama);
+// coba provider inject
+// const name = inject("name");
 </script>
 
 <template>
   <div>
     <button :disabled="buttonAttr.status" v-bind="buttonAttr">{{ isLoading() }}</button>
+    <!-- <button :disabled="buttonAttr.status" v-bind="buttonAttr">{{ name }}</button> -->
   </div>
 </template>
 

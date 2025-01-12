@@ -1,7 +1,13 @@
 <script setup>
-import { computed, reactive, ref } from "vue";
+import { provide, reactive, ref } from "vue";
+import ListRendering from "./components/ListRendering.vue";
+import ComputedProperties from "./components/ComputedProperties.vue";
+import ConditionalRendering from "./components/ConditionalRendering.vue";
+import ClassStyle from "./components/ClassStyle.vue";
+import EventHandling from "./components/EventHandling.vue";
+import Container from "./components/Container.vue";
 import ListButton from "./components/ListButton.vue";
-import CustomButton from "./components/CustomButton.vue";
+import PostList from "./components/PostList.vue";
 
 const msg = "Vue 3 is awesome";
 const bodyBlog = '<p style="color: blue;" >Ini adalah body blog</p>';
@@ -9,8 +15,7 @@ const idBlog = "blog-1";
 const blogClass = "text-2xl text-red-500";
 
 const count = ref("nama");
-const count2 = ref(0);
-const isTrue = ref(true);
+
 const state = reactive({
   count: 0,
 });
@@ -23,14 +28,7 @@ setInterval(() => {
   state.count++;
 }, 500);
 
-const testComputed = computed(() => {
-  console.info("render");
-  return count2.value > 5 ? "Lebih dari 5" : "Kurang dari 5";
-});
-
-function hide() {
-  isTrue.value = !isTrue.value;
-}
+provide("name", count);
 </script>
 
 <template>
@@ -38,6 +36,7 @@ function hide() {
     <h1>Belajar Vue 3</h1>
     <p>{{ msg }}</p>
     <OptionsComponent />
+
     <div v-html="bodyBlog" :id="idBlog" :class="blogClass"></div>
     <p>Ini state count: {{ count }}</p>
     <p>Ini state reactive count: {{ state.count }}</p>
@@ -46,15 +45,38 @@ function hide() {
     <ListButton :nama="`Register`" />
 
     <hr />
-    <div>Coba computed properties:</div>
-    {{ testComputed }}
-    <CustomButton @click="count2++" :nama="`${count2} click me`" />
+    <ComputedProperties />
 
     <hr />
-    <h2 v-if="isTrue">Hei! {{ count }}</h2>
-    <h2 v-else>Yow {{ count }}</h2>
-    <h2 v-show="isTrue">GG! {{ count }}</h2>
-    <CustomButton @click="hide()" :nama="`Hide`" />
+    <ConditionalRendering :count="count" />
+
+    <hr />
+    <ListRendering />
+
+    <hr />
+    <ClassStyle />
+
+    <hr />
+    <EventHandling />
+
+    <hr />
+    <Container>
+      <template #header>
+        <h5>Ini adalah header slot</h5>
+      </template>
+
+      <template #main="{ text }">
+        <p>Ini adalah main slot</p>
+        <p>{{ text }}</p>
+      </template>
+
+      <!-- <template #footer>
+        <p>Ini adalah footer slot</p>
+      </template> -->
+    </Container>
+
+    <hr />
+    <PostList />
   </div>
 </template>
 
