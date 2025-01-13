@@ -7,6 +7,7 @@ import SearchForm from "./components/form/SearchForm";
 import HelloWorld from "./components/HelloWorld";
 import TodoList from "./components/todolist/TodoList";
 import ContactForm from "./components/form/ContactForm";
+import ProfileApp from "./components/profile/ProfileApp";
 
 function App() {
   const [query, setQuery] = useState("helo!");
@@ -15,13 +16,15 @@ function App() {
     <>
       <SearchForm onSearch={setQuery} />
 
+      <hr />
+
       <Container>
         <HelloWorld text={query} />
         <TodoList />
-
         <AlertButton />
       </Container>
 
+      <hr />
       <Container>
         <h5>Ini Event propagation</h5>
         <ToolBar
@@ -32,9 +35,17 @@ function App() {
         />
       </Container>
 
+      <hr />
+
       <Container>
         <h5>Ini state object</h5>
         <ContactForm />
+      </Container>
+
+      <hr />
+
+      <Container>
+        <ProfileApp />
       </Container>
     </>
   );
