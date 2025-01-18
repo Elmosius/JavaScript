@@ -8,6 +8,9 @@ import HelloWorld from "./components/HelloWorld";
 import TodoList from "./components/todolist/TodoList";
 import ContactForm from "./components/form/ContactForm";
 import ProfileApp from "./components/profile/ProfileApp";
+import Timer from "./components/timer/Timer";
+import GuessBook from "./components/guess-book/GuessBook";
+import NoteApp from "./components/note/NoteApp";
 
 function App() {
   const [query, setQuery] = useState("helo!");
@@ -46,6 +49,19 @@ function App() {
 
       <Container>
         <ProfileApp />
+      </Container>
+      <hr />
+      <Container>
+        <h3>Ini use ref </h3>
+        <Timer />
+        <br /> <br />
+        <GuessBook />
+      </Container>
+
+      <hr />
+      <Container>
+        <h3>Ini hook Memo </h3>
+        <NoteApp />
       </Container>
     </>
   );

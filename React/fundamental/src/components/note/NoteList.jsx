@@ -9,7 +9,7 @@ export default function NoteList() {
 
   const filteredNotes = useMemo(() => {
     console.info("Filtering notes");
-    return notes.filter((note) => note.text.includes(search));
+    return notes.filter((note) => note.text.toUpperCase().includes(search.toUpperCase()));
   }, [notes, search]);
 
   function handleSearch() {

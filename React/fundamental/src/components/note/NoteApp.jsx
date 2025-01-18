@@ -35,7 +35,7 @@ export default function NoteApp() {
     <div>
       <NotesContext.Provider value={notes}>
         <NotesDispatchContext.Provider value={dispatch}>
-          <h1>Note App</h1>
+          <h3>Note App</h3>
           <NoteForm />
           <NoteList />
         </NotesDispatchContext.Provider>
