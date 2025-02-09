@@ -12,5 +12,8 @@ function solution(str, ending) {
 
 /**** Soal No 108*****/
 // https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d/train/javascript
+function take(arr, n) {
+  return arr.slice(0, n);
+}
 
 console.info(solution("sumo", "omo"));
