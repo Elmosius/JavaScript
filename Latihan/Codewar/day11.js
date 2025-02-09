@@ -128,7 +128,55 @@ function rainAmount(mm) {
 
 /**** Soal No 118*****/
 // https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/javascript
+function high(x) {
+  x = x.split(" ");
+  let result = 0;
+  let word;
 
+  x.forEach((e) => {
+    let temp = 0;
+    alphabet = e.split("");
+    alphabet.forEach((e) => {
+      temp += e.charCodeAt() - 96;
+    });
 
+    if (temp > result) {
+      result = temp;
+      word = e;
+    }
+  });
 
-console.info(rainAmount(39));
+  return word;
+}
+
+/**** Soal No 119*****/
+// https://www.codewars.com/kata/58649884a1659ed6cb000072/javascript
+function updateLight(current) {
+  let lights = ["green", "yellow", "red"];
+  return current === "red" ? "green" : lights[lights.indexOf(current) + 1];
+}
+
+/**** Soal No 120*****/
+// https://www.codewars.com/kata/58cb43f4256836ed95000f97/javascript
+function updateLight(current) {
+  let lights = ["green", "yellow", "red"];
+  return current === "red" ? "green" : lights[lights.indexOf(current) + 1];
+}
+
+/**** Soal No 121*****/
+// https://www.codewars.com/kata/58cb43f4256836ed95000f97/javascript
+function findDifference(a, b) {
+  a = a.reduce((a, b) => a * b);
+  b = b.reduce((a, b) => a * b);
+
+  return Math.abs(a - b);
+}
+
+/**** Soal No 122*****/
+// https://www.codewars.com/kata/554e4a2f232cdd87d9000038/javascript
+function dnaStrand(dna){
+  return ""
+}
+// "ATTGC" --> "TAACG"
+// "GTAT" --> "CATA"
+console.info(high("take me to semynak"));
