@@ -16,4 +16,19 @@ function take(arr, n) {
   return arr.slice(0, n);
 }
 
-console.info(solution("sumo", "omo"));
+/**** Soal No 109*****/
+// https://www.codewars.com/kata/54ff3102c1bad923760001f3/train/javascript
+function getCount(str) {
+  let vowels = ["a", "e", "i", "o", "u"];
+  str = str.split("");
+  let count = 0;
+  str.forEach((e) => {
+    if (vowels.includes(e)) {
+      count++;
+    }
+  });
+
+  return count;
+}
+
+console.info(getCount("abracadabra"));
