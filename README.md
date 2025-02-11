@@ -6,6 +6,7 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar ma
 - 📃 Latihan (Codewar)
 - 🎒 NodeJs
 - 🔰 VueJs
+- ⚛️ React
 - ⚠️ Coming Soon
 
 ## 📖 Referensi
