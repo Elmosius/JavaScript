@@ -1,6 +1,8 @@
-import { Link, NavLink, Outlet } from "react-router";
+import { NavLink, Outlet, useLocation } from "react-router";
 
 export default function DataLayout() {
+  const location = useLocation();
+
   return (
     <>
       <div>
@@ -34,6 +36,7 @@ export default function DataLayout() {
       <div>
         <hr />
         <p>This is Footer</p>
+        <p>Location right now: {location.pathname}{location.search}{location.hash} </p>
       </div>
     </>
   );
