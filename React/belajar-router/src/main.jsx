@@ -13,6 +13,7 @@ import DataLayout from "./DataLayout";
 import ProductDetail from "./ProductDetail";
 import Images from "./Images";
 import NotFound from "./NotFound";
+import ProductSearch from "./ProductSearch";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")).render(
           <Route index element={<Data />} />
           <Route path="products" element={<Product />} />
           <Route path="products/:id" element={<ProductDetail />} />
+          <Route path="products/search" element={<ProductSearch />} />
           <Route path="sellers" element={<Seller />} />
           <Route path="customer" element={<Customer />} />
         </Route>
