@@ -5,6 +5,8 @@ export default function Counter() {
   let x = 5;
 
   const counter = useSelector((state) => state.counter);
+
+  console.info(counter);
   const doubleCounter = useSelector(getDoubleCounter);
   const xCounter = useSelector((state) => getCounter(state, x));
 

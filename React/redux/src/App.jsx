@@ -7,6 +7,7 @@ function App() {
     <>
       <h1>Hello redux</h1>
       <button onClick={() => navigate("/counter")}>Go to Counter</button>
+      <button onClick={() => navigate("/todolist")}>Go to TodoList</button>
     </>
   );
 }
