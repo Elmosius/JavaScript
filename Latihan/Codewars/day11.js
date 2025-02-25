@@ -172,11 +172,5 @@ function findDifference(a, b) {
   return Math.abs(a - b);
 }
 
-/**** Soal No 122*****/
-// https://www.codewars.com/kata/554e4a2f232cdd87d9000038/javascript
-function dnaStrand(dna){
-  return ""
-}
-// "ATTGC" --> "TAACG"
-// "GTAT" --> "CATA"
-console.info(high("take me to semynak"));
+
+
