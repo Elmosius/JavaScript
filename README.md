@@ -5,7 +5,7 @@ Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar ma
 - 📖 JS Basic
 - 📃 Latihan (Codewar)
 - 🎒 NodeJs
-- 🔰 VueJs
+- 🔰 Vue.js
 - ⚛️ React
 - ⚠️ Coming Soon
 
