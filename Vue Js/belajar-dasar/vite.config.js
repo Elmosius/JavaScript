@@ -10,7 +10,8 @@ export default defineConfig({
         index: "index.html",
         hello: "hello.html",
         counter: "counter.html",
-        sayHello: "say-hello.html"
+        sayHello: "say-hello.html",
+        style: "style.html",
       },
     },
   },
