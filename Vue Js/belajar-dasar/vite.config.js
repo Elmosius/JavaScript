@@ -12,6 +12,7 @@ export default defineConfig({
         counter: "counter.html",
         sayHello: "say-hello.html",
         style: "style.html",
+        score: "score.html",
       },
     },
   },
