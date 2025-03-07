@@ -1,10 +1,12 @@
 <script setup>
-import { computed, reactive } from "vue";
+import { computed, reactive, ref } from "vue";
 
 const person = reactive({
   firstName: "",
   lastName: "",
 });
+
+const counter = ref(0);
 
 // agar tidak terjadi perubahan seluruhnya kita gunakan computed(), kita bisa tau juga nilai sebelumnya
 const fullName = computed((oldValue) => {
@@ -16,15 +18,40 @@ function sayHello() {
   person.firstName = document.getElementById("firstName").value;
   person.lastName = document.getElementById("lastName").value;
 }
+
+function changeFirstName(event) {
+  person.firstName = event.target.value;
+}
+
+function changeLastName(event) {
+  person.lastName = event.target.value;
+}
 </script>
 
 <template>
   <div>
-    <input type="text" placeholder="First Name" id="firstName" /> <br />
-    <input type="text" placeholder="Last Name" id="lastName" /> <br />
-    <button v-on:click="sayHello">Submit</button>
+    <form>
+      <button @click.prevent="counter++">increment {{ counter }}</button>
+      <br />
 
-    <h3>Hello {{ fullName }}</h3>
+      <input
+        type="text"
+        placeholder="First Name"
+        id="firstName"
+        @input="changeFirstName"
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="Last Name"
+        id="lastName"
+        @input="changeLastName"
+      />
+      <br />
+      <button v-on:click.prevent="sayHello">Submit</button>
+
+      <h3>Hello {{ fullName }}</h3>
+    </form>
   </div>
 </template>
 
