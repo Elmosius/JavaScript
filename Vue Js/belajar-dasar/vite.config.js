@@ -15,6 +15,7 @@ export default defineConfig({
         score: "score.html",
         todoList: "todoList.html",
         contactus: "contactus.html",
+        product: "product.html",
       },
     },
   },
