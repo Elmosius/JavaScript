@@ -1,5 +1,20 @@
 <script setup>
-const model = defineModel();
+const model = defineModel({
+  type: Object,
+  required: true,
+  default: {
+    name: "",
+    email: "",
+    age: 0,
+    type: "Regular",
+    complain: false,
+    message: "",
+  },
+  get: (value) => {
+    value.email = value.email.toUpperCase();
+    return value;
+  },
+});
 </script>
 
 <template>
