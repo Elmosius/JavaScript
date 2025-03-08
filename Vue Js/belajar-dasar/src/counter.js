@@ -1,5 +1,5 @@
 import { createApp } from "vue";
 import "./style.css";
-import Counter from "./components/Counter.vue";
+import MultipleCounter from "./components/MultipleCounter.vue";
 
-createApp(Counter).mount("#app");
+createApp(MultipleCounter).mount("#app");
