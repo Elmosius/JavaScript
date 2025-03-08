@@ -25,6 +25,10 @@ watchEffect(async () => {
   const response = await fetch(`/${newVal}.json`);
   product.value = await response.json();
 });
+
+function handlePriceUp() {
+  product.value.price += 1000;
+}
 </script>
 
 <template>
@@ -41,6 +45,7 @@ watchEffect(async () => {
       :id="product.id"
       :price="product.price"
       :name="product.name"
+      :handlePriceUp="handlePriceUp"
     />
   </div>
 </template>

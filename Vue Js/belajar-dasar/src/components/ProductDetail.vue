@@ -18,6 +18,9 @@ const product = defineProps({
       return value > 0;
     },
   },
+  handlePriceUp: {
+    type: Function,
+  },
 });
 </script>
 
@@ -26,6 +29,7 @@ const product = defineProps({
   <p>Product ID: {{ product.id }}</p>
   <p>Product Name: {{ product.name }}</p>
   <p>Product Price: {{ product.price }}</p>
+  <button @click="handlePriceUp()">Price Up</button>
 </template>
 
 <style scoped></style>
