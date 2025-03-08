@@ -1,9 +1,17 @@
 <script setup>
-import { reactive, ref, useTemplateRef } from "vue";
+import {
+  onBeforeMount,
+  onMounted,
+  onUpdated,
+  reactive,
+  ref,
+  useTemplateRef,
+} from "vue";
 
 const notes = reactive([]);
 const note = ref();
 const noteInput = useTemplateRef("noteInput");
+
 const noteList = useTemplateRef("noteList");
 
 function addNote() {
@@ -16,6 +24,19 @@ function addNote() {
     });
   }
 }
+
+// lifecycle hooks
+onBeforeMount(() => {
+  console.info("onBeforeMount");
+});
+
+onMounted(() => {
+  console.info("onMounted");
+});
+
+onUpdated(() => {
+  console.info("onUpdated");
+});
 </script>
 
 <template>
