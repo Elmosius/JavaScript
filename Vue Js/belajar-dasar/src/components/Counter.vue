@@ -1,38 +1,36 @@
 <script setup>
-import {nextTick, ref} from "vue";
+import { nextTick, ref } from "vue";
 
-  let count = ref({
-    value: 0,
-    name : 'Elmo'
-  });
+const { name, initialCount } = defineProps(["name", "initialCount"]);
 
-  async function increment() {
-    count.value = {
-      ...count.value,
-      value: count.value.value + 1
-    }
+let count = ref({
+  value: Number(initialCount),
+  name: name,
+});
 
-    count.value.value++
-    await nextTick();
-    count.value.value++
-    await nextTick();
-    count.value.value++
-    await nextTick();
+async function increment() {
+  count.value = {
+    ...count.value,
+    value: count.value.value + 1,
+  };
 
-    console.info('increment count after nextTick', count.value);
-  }
+  count.value.value++;
+  await nextTick();
+  count.value.value++;
+  await nextTick();
+  count.value.value++;
+  await nextTick();
+
+  console.info("increment count after nextTick", count.value);
+}
 </script>
 
 <template>
-  <h1 > {{count.name}}
-    {{count.value}}
+  <h1>
+    {{ name }}
+    {{ count.value }}
   </h1>
-  <button v-on:click="increment">
-    Click Me!
-
-  </button>
+  <button v-on:click="increment">Click Me!</button>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
