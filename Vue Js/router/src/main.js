@@ -7,6 +7,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "./components/Home.vue";
 import About from "./components/About.vue";
 import ProductDetail from "./components/ProductDetail.vue";
+import NotFound from "./components/NotFound.vue";
 
 const router = createRouter({
   routes: [
@@ -18,9 +19,18 @@ const router = createRouter({
       path: "/about",
       component: About,
     },
+
+    //   regex buat ngecek apakah id itu angka atau bukan
     {
       path: "/product/:id(\\d+)",
       component: ProductDetail,
+    },
+
+    //   kalau * buat semuanya
+    //   kalau + itu minimal ada 1
+    {
+      path: "/:notFound*",
+      component: NotFound,
     },
   ],
   history: createWebHistory(),
