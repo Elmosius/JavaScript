@@ -1,7 +1,8 @@
 <script setup></script>
 
 <template>
-  <RouterView />
+  <h1>Home</h1>
+  <p>this is home page</p>
 </template>
 
 <style scoped></style>
