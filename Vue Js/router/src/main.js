@@ -4,11 +4,16 @@ import App from "./App.vue";
 
 // inisialisasi untuk pake vue routernya
 import { createRouter, createWebHistory } from "vue-router";
+
 import Home from "./components/Home.vue";
 import About from "./components/About.vue";
 import ProductDetail from "./components/ProductDetail.vue";
 import NotFound from "./components/NotFound.vue";
 import ProductSearch from "./components/ProductSearch.vue";
+import User from "./components/User.vue";
+import UserProfile from "./components/UserProfile.vue";
+import UserOrder from "./components/UserOrder.vue";
+import UserWishList from "./components/UserWishList.vue";
 
 const router = createRouter({
   routes: [
@@ -31,6 +36,26 @@ const router = createRouter({
     {
       path: "/product/:id(\\d+)?",
       component: ProductDetail,
+    },
+
+    //   belajar nested route
+    {
+      path: "/user",
+      component: User,
+      children: [
+        {
+          path: "",
+          component: UserProfile,
+        },
+        {
+          path: "order",
+          component: UserOrder,
+        },
+        {
+          path: "wishlist",
+          component: UserWishList,
+        },
+      ],
     },
 
     //   kalau * buat semuanya
