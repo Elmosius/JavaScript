@@ -14,9 +14,10 @@ function clickHandler() {
       <h1>My Button App</h1>
     </template>
 
-    <template #default="attributes">
+    <!-- nama attr bisa diganti apapun -->
+    <template #default="attr">
       <!-- Coba fallthrough attr -->
-      <MyButton @click="clickHandler" :name="attributes.counter" />
+      <MyButton @click="clickHandler" :name="attr.counter" />
     </template>
 
     <template #footer>
