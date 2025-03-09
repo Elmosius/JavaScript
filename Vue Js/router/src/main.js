@@ -22,8 +22,9 @@ const router = createRouter({
     },
 
     //   regex buat ngecek apakah id itu angka atau bukan
+    //   ? => buat optional
     {
-      path: "/product/:id(\\d+)",
+      path: "/product/:id(\\d+)?",
       component: ProductDetail,
     },
 
