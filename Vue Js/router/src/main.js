@@ -18,6 +18,7 @@ const router = createRouter({
     {
       path: "/about",
       component: About,
+      sensitive: true,
     },
 
     //   regex buat ngecek apakah id itu angka atau bukan
