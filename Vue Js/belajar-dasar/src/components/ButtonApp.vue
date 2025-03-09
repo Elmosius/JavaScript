@@ -1,5 +1,6 @@
 <script setup>
 import MyButton from "./MyButton.vue";
+import Container from "./Container.vue";
 
 function clickHandler() {
   alert("Button clicked");
@@ -7,8 +8,21 @@ function clickHandler() {
 </script>
 
 <template>
-  <!--  fallthrough elements-->
-  <MyButton @click="clickHandler" name="Elmo"></MyButton>
+  <!-- coba slot-->
+  <Container>
+    <template #header>
+      <h1>My Button App</h1>
+    </template>
+
+    <template #default="attributes">
+      <!-- Coba fallthrough attr -->
+      <MyButton @click="clickHandler" :name="attributes.counter" />
+    </template>
+
+    <template #footer>
+      <p>Copyright 2025 @Elmo</p>
+    </template>
+  </Container>
 </template>
 
 <style scoped></style>
