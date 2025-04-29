@@ -2,11 +2,11 @@
 Selamat datang di repositori saya! Di sini, Anda akan menemukan rekap belajar mandiri saya tentang hal yang berkaitan dengan JavaScript 
 
 ## 📖 Materi
-- 📖 JS Basic
-- 📃 Latihan (Codewar)
-- 🎒 NodeJs
-- 🔰 Vue.js
-- ⚛️ React
+- JS Basic
+- Latihan (Codewar)
+- NodeJs
+- Vue.js
+- ⚛React
 - ⚠️ Coming Soon
 
 ## 📖 Referensi
