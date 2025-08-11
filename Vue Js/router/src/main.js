@@ -10,12 +10,6 @@ import About from "./components/About.vue";
 import ProductDetail from "./components/ProductDetail.vue";
 import NotFound from "./components/NotFound.vue";
 import ProductSearch from "./components/ProductSearch.vue";
-import User from "./components/User.vue";
-import UserProfile from "./components/UserProfile.vue";
-import UserOrder from "./components/UserOrder.vue";
-import UserWishList from "./components/UserWishList.vue";
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
 
 const router = createRouter({
   routes: [
@@ -77,31 +71,31 @@ const router = createRouter({
     //   belajar nested route
     {
       path: "/user",
-      component: User,
+      component: import("./components/User.vue"),
       children: [
         {
           path: "",
           components: {
-            header: Header,
-            default: UserProfile,
+            header: import("./components/Header.vue"),
+            default: import("./components/UserProfile.vue"),
           },
           name: "user-profile",
         },
         {
           path: "order",
           components: {
-            header: Header,
-            footer: Footer,
-            default: UserOrder,
+            header: import("./components/Header.vue"),
+            footer: import("./components/Footer.vue"),
+            default: import("./components/UserOrder.vue"),
           },
           name: "user-order",
         },
         {
           path: "wishlist",
           components: {
-            header: Header,
-            footer: Footer,
-            default: UserWishList,
+            header: import("./components/Header.vue"),
+            footer: import("./components/Footer.vue"),
+            default: import("./components/UserWishList.vue"),
           },
           name: "user-wishlist",
         },
@@ -113,9 +107,25 @@ const router = createRouter({
     {
       path: "/:notFound*",
       component: NotFound,
+      beforeEnter: (to, from, next) => {
+        console.info(`not found ${to.fullPath}`);
+        next();
+      },
     },
   ],
   history: createWebHistory(),
+  // createwebhistory itu menggunakan HTML5 Mode dimana urlnya akan normal
+  // hashmode itu akan menggunakan # misal http://localhost:3000/#/about
+  // memorymode itu tidak akan ada perubahan url pada browser yang dimana perpindahan halmaan harus memakai routerlink
+});
+
+router.beforeEach((to, from, next) => {
+  console.log(`before navigation to ${to.fullPath} from ${from.fullPath}`);
+  next();
+});
+
+router.afterEach((to, from) => {
+  console.log(`after navigation to ${to.fullPath} from ${from.fullPath}`);
 });
 
 createApp(App).use(router).mount("#app");
