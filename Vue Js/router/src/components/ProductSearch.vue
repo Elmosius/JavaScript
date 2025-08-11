@@ -2,12 +2,12 @@
 import { ref, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
+const { product } = defineProps(["product"]);
 const products = ref([]);
-const route = useRoute();
 const router = useRouter();
 
 // query.(nama parameter) untuk mengambil nilai parameter dari query string
-const search = ref(route.query.product || "");
+const search = ref(product || "");
 
 watchEffect(() => {
   router.replace({

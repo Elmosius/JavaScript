@@ -23,6 +23,13 @@ const router = createRouter({
       path: "/",
       component: Home,
       name: "home",
+      props: {
+        title: "Home",
+      },
+    },
+    {
+      path: "/home",
+      redirect: "/",
     },
     {
       path: "/about",
@@ -34,6 +41,23 @@ const router = createRouter({
       path: "/products/search",
       component: ProductSearch,
       name: "product-search",
+      props: (route) => {
+        return {
+          product: route.query.product,
+        };
+      },
+    },
+
+    {
+      path: "/products/search/:product",
+      redirect: (router) => {
+        return {
+          name: "product-search",
+          query: {
+            product: router.params.product,
+          },
+        };
+      },
     },
 
     //   regex buat ngecek apakah id itu angka atau bukan
@@ -42,6 +66,12 @@ const router = createRouter({
       path: "/product/:id(\\d+)?",
       component: ProductDetail,
       name: "product-detail",
+      // props: true,
+      props: (route) => {
+        return {
+          id: route.params.id,
+        };
+      },
     },
 
     //   belajar nested route
