@@ -11,6 +11,7 @@ const search = ref(route.query.product || "");
 
 watchEffect(() => {
   router.replace({
+    name: "product-search",
     query: {
       product: search.value,
     },

@@ -1,15 +1,12 @@
-<script setup>
-import Footer from "./Footer.vue";
-import Header from "./Header.vue";
-</script>
+<script setup></script>
 
 <template>
   <h1>User</h1>
-  <Header />
+  <RouterView name="header" />
 
   <RouterView />
 
-  <Footer />
+  <RouterView name="footer" />
 </template>
 
 <style scoped></style>

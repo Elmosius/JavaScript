@@ -4,9 +4,13 @@
   <p>this is header</p>
 
   <ul>
-    <li><RouterLink to="/user">User Profile</RouterLink></li>
-    <li><RouterLink to="/user/order">User Order</RouterLink></li>
-    <li><RouterLink to="/user/wishlist">User WishList</RouterLink></li>
+    <li>
+      <RouterLink :to="{ name: 'user-profile' }">User Profile</RouterLink>
+    </li>
+    <li><RouterLink :to="{ name: 'user-order' }">User Order</RouterLink></li>
+    <li>
+      <RouterLink :to="{ name: 'user-wishlist' }">User WishList</RouterLink>
+    </li>
   </ul>
 </template>
 

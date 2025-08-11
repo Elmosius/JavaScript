@@ -14,21 +14,26 @@ import User from "./components/User.vue";
 import UserProfile from "./components/UserProfile.vue";
 import UserOrder from "./components/UserOrder.vue";
 import UserWishList from "./components/UserWishList.vue";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 const router = createRouter({
   routes: [
     {
       path: "/",
       component: Home,
+      name: "home",
     },
     {
       path: "/about",
       component: About,
       sensitive: true,
+      name: "about",
     },
     {
       path: "/products/search",
       component: ProductSearch,
+      name: "product-search",
     },
 
     //   regex buat ngecek apakah id itu angka atau bukan
@@ -36,6 +41,7 @@ const router = createRouter({
     {
       path: "/product/:id(\\d+)?",
       component: ProductDetail,
+      name: "product-detail",
     },
 
     //   belajar nested route
@@ -45,15 +51,29 @@ const router = createRouter({
       children: [
         {
           path: "",
-          component: UserProfile,
+          components: {
+            header: Header,
+            default: UserProfile,
+          },
+          name: "user-profile",
         },
         {
           path: "order",
-          component: UserOrder,
+          components: {
+            header: Header,
+            footer: Footer,
+            default: UserOrder,
+          },
+          name: "user-order",
         },
         {
           path: "wishlist",
-          component: UserWishList,
+          components: {
+            header: Header,
+            footer: Footer,
+            default: UserWishList,
+          },
+          name: "user-wishlist",
         },
       ],
     },
