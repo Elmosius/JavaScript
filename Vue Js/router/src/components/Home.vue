@@ -2,7 +2,7 @@
 
 <template>
   <h1>Home</h1>
-  <p>this is home page</p>
+  <p>This is home page</p>
 </template>
 
 <style scoped></style>

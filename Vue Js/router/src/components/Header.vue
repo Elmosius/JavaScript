@@ -2,6 +2,17 @@
 
 <template>
   <p>this is header</p>
+
+  <ul>
+    <li><RouterLink to="/user">User Profile</RouterLink></li>
+    <li><RouterLink to="/user/order">User Order</RouterLink></li>
+    <li><RouterLink to="/user/wishlist">User WishList</RouterLink></li>
+  </ul>
 </template>
 
-<style scoped></style>
+<style scoped>
+.router-link-exact-active {
+  color: #535bf2;
+  font-weight: bold;
+}
+</style>
