@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32e4530e-3924-4316-a6a7-fe5c286690f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Latihan/Codewars/day14.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +77,7 @@
       <workItem from="1754883680387" duration="3954000" />
       <workItem from="1754887949529" duration="143000" />
       <workItem from="1754888100064" duration="14327000" />
+      <workItem from="1754971732465" duration="12994000" />
     </task>
     <servers />
   </component>
