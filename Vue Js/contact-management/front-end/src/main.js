@@ -3,6 +3,7 @@ import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import Layout from "./components/Layout.vue";
 import Register from "./components/User/Register.vue";
+import Login from "./components/User/Login.vue";
 
 const router = createRouter({
   routes: [
@@ -12,11 +13,22 @@ const router = createRouter({
         {
           path: "/register",
           component: Register,
+          name: "register",
+        },
+        {
+          path: "/login",
+          component: Login,
+          name: "login",
         },
       ],
     },
     {
+      path: "/",
+      redirect: "/dashboard",
+    },
+    {
       path: "/dashboard",
+      name: "dashboard",
     },
   ],
 
