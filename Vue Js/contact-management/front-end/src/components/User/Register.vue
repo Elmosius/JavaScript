@@ -149,7 +149,7 @@ async function handleSubmit() {
       <div class="text-center text-sm text-gray-400">
         Already have an account?
         <router-link
-          to="/login"
+          :to="{ name: 'login' }"
           class="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-200"
           >Sign in</router-link
         >

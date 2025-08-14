@@ -19,7 +19,7 @@
           <ul class="flex space-x-6">
             <li>
               <RouterLink
-                to="/dashboard/profile"
+                :to="{ name: 'profile' }"
                 class="text-gray-100 hover:text-white flex items-center transition-colors duration-200"
               >
                 <i class="fas fa-user-circle mr-2"></i>
@@ -28,7 +28,7 @@
             </li>
             <li>
               <RouterLink
-                to="/logout"
+                to="/login"
                 class="text-gray-100 hover:text-white flex items-center transition-colors duration-200"
               >
                 <i class="fas fa-sign-out-alt mr-2"></i>
@@ -42,10 +42,6 @@
 
     <!-- Main content -->
     <main class="container mx-auto px-4 py-8 flex-grow">
-      <div class="flex items-center mb-6">
-        <i class="fas fa-users text-blue-400 text-2xl mr-3"></i>
-        <h1 class="text-2xl font-bold text-white">My Contacts</h1>
-      </div>
       <RouterView />
       <!-- Footer -->
       <div class="mt-10 mb-6 text-center text-gray-400 text-sm animate-fade-in">

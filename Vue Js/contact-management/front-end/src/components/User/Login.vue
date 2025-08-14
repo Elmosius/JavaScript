@@ -17,7 +17,7 @@ async function handleSubmit() {
   const data = await res.json();
 
   if (res.status === 200) {
-    token.value = data.token;
+    token.value = data.data.token;
     await alertSuccess("Login successful");
     await router.push("/dashboard");
   } else {
@@ -99,7 +99,7 @@ async function handleSubmit() {
       <div class="text-center text-sm text-gray-400">
         Don't have an account?
         <router-link
-          to="/register"
+          :to="{ name: 'register' }"
           class="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-200"
           >Sign up</router-link
         >

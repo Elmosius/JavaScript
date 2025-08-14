@@ -6,19 +6,21 @@ import Register from "./components/User/Register.vue";
 import Login from "./components/User/Login.vue";
 import ContactList from "./components/Contact/ContactList.vue";
 import DashboardLayout from "./components/DashboardLayout.vue";
+import Profile from "./components/User/Profile.vue";
 
 const router = createRouter({
   routes: [
     {
+      path: "/auth",
       component: Layout,
       children: [
         {
-          path: "/register",
+          path: "register",
           component: Register,
           name: "register",
         },
         {
-          path: "/login",
+          path: "login",
           component: Login,
           name: "login",
         },
@@ -37,6 +39,11 @@ const router = createRouter({
           path: "contact",
           name: "contact-list",
           component: ContactList,
+        },
+        {
+          path: "profile",
+          name: "profile",
+          component: Profile,
         },
       ],
     },
