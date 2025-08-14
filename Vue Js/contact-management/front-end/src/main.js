@@ -7,6 +7,7 @@ import Login from "./components/User/Login.vue";
 import ContactList from "./components/Contact/ContactList.vue";
 import DashboardLayout from "./components/DashboardLayout.vue";
 import Profile from "./components/User/Profile.vue";
+import Logout from "./components/User/Logout.vue";
 
 const router = createRouter({
   routes: [
@@ -23,6 +24,11 @@ const router = createRouter({
           path: "login",
           component: Login,
           name: "login",
+        },
+        {
+          path: "logout",
+          name: "logout",
+          component: Logout,
         },
       ],
     },

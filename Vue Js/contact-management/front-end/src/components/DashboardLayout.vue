@@ -28,7 +28,7 @@
             </li>
             <li>
               <RouterLink
-                to="/login"
+                :to="{ name: 'logout' }"
                 class="text-gray-100 hover:text-white flex items-center transition-colors duration-200"
               >
                 <i class="fas fa-sign-out-alt mr-2"></i>
