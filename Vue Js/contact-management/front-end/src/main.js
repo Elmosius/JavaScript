@@ -8,6 +8,7 @@ import ContactList from "./components/Contact/ContactList.vue";
 import DashboardLayout from "./components/DashboardLayout.vue";
 import Profile from "./components/User/Profile.vue";
 import Logout from "./components/User/Logout.vue";
+import ContactCreate from "./components/Contact/ContactCreate.vue";
 
 const router = createRouter({
   routes: [
@@ -42,9 +43,13 @@ const router = createRouter({
       component: DashboardLayout,
       children: [
         {
-          path: "contact",
-          name: "contact-list",
+          path: "",
           component: ContactList,
+        },
+        {
+          path: "contact/create",
+          name: "contact-create",
+          component: ContactCreate,
         },
         {
           path: "profile",
