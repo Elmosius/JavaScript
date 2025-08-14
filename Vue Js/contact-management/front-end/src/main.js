@@ -4,6 +4,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import Layout from "./components/Layout.vue";
 import Register from "./components/User/Register.vue";
 import Login from "./components/User/Login.vue";
+import ContactList from "./components/Contact/ContactList.vue";
+import DashboardLayout from "./components/DashboardLayout.vue";
 
 const router = createRouter({
   routes: [
@@ -29,6 +31,14 @@ const router = createRouter({
     {
       path: "/dashboard",
       name: "dashboard",
+      component: DashboardLayout,
+      children: [
+        {
+          path: "contact",
+          name: "contact-list",
+          component: ContactList,
+        },
+      ],
     },
   ],
 
