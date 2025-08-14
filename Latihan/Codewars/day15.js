@@ -113,22 +113,106 @@ const sequenceSum = (begin, end, step) => {
 // foo099 -> foo100
 
 function incrementString (str) {
-    for(let i of str){
+    let l = str.length
+
+    if(isNaN(Number(str[l-1]))){
+        return str + 1
     }
+
+    for(let i = l -1 ; i >= 0; i--){
+        if(isNaN(Number(str[i]))){
+            return str.slice(0,i+1) + '1' + str.slice(i+1)
+        }
+        else if (Number(str[i]) >= 0 && Number(str[i]) < 9){
+            return str.slice(0,i) + (Number(str[i]) + 1) + str.slice(i+1)
+        }
+        else{
+            str = str.slice(0,i) + '0' + str.slice(i+1)
+        }
+
+        console.info(str)
+    }
+
+    return str
 }
 
-console.info(incrementString('foo'))
+// const str = 'foo0999'
+// console.info(incrementString(str))
 
 /**** Soal No 155 *****/
-//
+// https://www.codewars.com/kata/54ba84be607a92aa900000f1/javascript
+/*
+"Dermatoglyphics" --> true
+"aba" --> false
+"moOse" --> false (ignore letter case)
+*/
+
+function isIsogram(str){
+    str = str.toLowerCase()
+    let count = {}
+
+    for (let i of str){
+        count[i] = (count[i] || 0) + 1;
+    }
+
+    for (let i in count) {
+        if (count[i] > 1) {
+            return false
+        }
+    }
+    return true
+}
+
+function isIsogram2(str){
+    str = str.toLowerCase()
+    let check = new Set()
+
+    for (let i of str) {
+        if(check.has(i)) return false
+        check.add(i)
+    }
+    return true
+}
+
+// let str = 'apa'
+// console.info(isIsogram2(str))
 
 /**** Soal No 156 *****/
-//
+// https://www.codewars.com/kata/583ade15666df5a64e000058
+// 2 -> binary
+// 16 -> hex
+function evensAndOdds(num){
+    return num % 2 === 0 ? num.toString(2) : num.toString(16)
+}
+
 /**** Soal No 157 *****/
-//
+// https://www.codewars.com/kata/546e2562b03326a88e000020/train/javascript
+function squareDigits(num){
+    num = num.toString()
+    let hasil = ''
+    num.split('').map((e, i) => {
+        hasil += (Number(e) * Number(e))
+    })
+    return Number(hasil)
+}
+
+console.info(squareDigits(9119)) // 811181
+
 /**** Soal No 158 *****/
-//
+// https://www.codewars.com/kata/56606694ec01347ce800001b/javascript
+function isTriangle(a,b,c){
+    return (a + b > c) && (a + c > b) && (b + c > a)
+}
+
+
 /**** Soal No 159 *****/
-//
+// https://www.codewars.com/kata/57cc981a58da9e302a000214/javascript
+function smallEnough(a, limit){
+    for(let i of a) if(i > limit) return false;
 
+    return true;
+}
 
+console.info(smallEnough([66,101], 200))
+console.info(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100))
+console.info(smallEnough([101, 45, 75, 105, 99, 107], 107))
