@@ -216,3 +216,5 @@ function smallEnough(a, limit){
 console.info(smallEnough([66,101], 200))
 console.info(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100))
 console.info(smallEnough([101, 45, 75, 105, 99, 107], 107))
+
+document.getElementById('apa')
