@@ -1,4 +1,34 @@
-<script setup></script>
+<script setup>
+import { reactive } from "vue";
+import { userRegister } from "../../lib/api/UserApi.js";
+import { alertError, alertSuccess } from "../../lib/alert.js";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const user = reactive({
+  username: "",
+  password: "",
+  confirm_password: "",
+  name: "",
+});
+
+async function handleSubmit() {
+  if (user.password !== user.confirm_password) {
+    await alertError("Passwords do not match");
+    return;
+  }
+
+  const res = await userRegister(user).json();
+
+  if (res.status === 200) {
+    await alertSuccess("User created successfully");
+    await router.push("/login");
+  } else {
+    await alertError("User creation failed");
+  }
+}
+</script>
 
 <template>
   <div
@@ -12,7 +42,7 @@
       <p class="text-gray-300 mt-2">Create a new account</p>
     </div>
 
-    <form>
+    <form @submit.prevent="handleSubmit">
       <div class="mb-4">
         <label
           for="username"
@@ -32,6 +62,7 @@
             class="w-full pl-10 pr-3 py-3 bg-gray-700 bg-opacity-50 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             placeholder="Choose a username"
             required
+            v-model="user.username"
           />
         </div>
       </div>
@@ -53,6 +84,7 @@
             class="w-full pl-10 pr-3 py-3 bg-gray-700 bg-opacity-50 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             placeholder="Enter your full name"
             required
+            v-model="user.name"
           />
         </div>
       </div>
@@ -76,6 +108,7 @@
             class="w-full pl-10 pr-3 py-3 bg-gray-700 bg-opacity-50 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             placeholder="Create a password"
             required
+            v-model="user.password"
           />
         </div>
       </div>
@@ -99,6 +132,7 @@
             class="w-full pl-10 pr-3 py-3 bg-gray-700 bg-opacity-50 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             placeholder="Confirm your password"
             required
+            v-model="user.confirm_password"
           />
         </div>
       </div>
@@ -114,10 +148,10 @@
 
       <div class="text-center text-sm text-gray-400">
         Already have an account?
-        <a
-          href="index.html"
+        <router-link
+          to="/login"
           class="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-200"
-          >Sign in</a
+          >Sign in</router-link
         >
       </div>
     </form>
