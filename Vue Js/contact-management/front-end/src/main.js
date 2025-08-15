@@ -10,6 +10,7 @@ import Profile from "./components/User/Profile.vue";
 import Logout from "./components/User/Logout.vue";
 import ContactCreate from "./components/Contact/ContactCreate.vue";
 import ContactEdit from "./components/Contact/ContactEdit.vue";
+import ContactDetail from "./components/Contact/ContactDetail.vue";
 
 const router = createRouter({
   routes: [
@@ -56,6 +57,12 @@ const router = createRouter({
           path: "contact/edit/:id",
           name: "contact-edit",
           component: ContactEdit,
+          props: true,
+        },
+        {
+          path: "contact/detail/:id",
+          name: "contact-detail",
+          component: ContactDetail,
           props: true,
         },
         {

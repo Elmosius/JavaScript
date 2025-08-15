@@ -230,7 +230,7 @@ onBeforeMount(async () => {
     >
       <div class="p-6">
         <RouterLink
-          :to="`/dashboard/contacts/${contact.id}`"
+          :to="`/dashboard/contact/detail/${contact.id}`"
           class="block cursor-pointer hover:bg-gray-700 rounded-lg transition-all duration-200 p-3"
         >
           <div class="flex items-center mb-3">
