@@ -9,6 +9,7 @@ import DashboardLayout from "./components/DashboardLayout.vue";
 import Profile from "./components/User/Profile.vue";
 import Logout from "./components/User/Logout.vue";
 import ContactCreate from "./components/Contact/ContactCreate.vue";
+import ContactEdit from "./components/Contact/ContactEdit.vue";
 
 const router = createRouter({
   routes: [
@@ -50,6 +51,12 @@ const router = createRouter({
           path: "contact/create",
           name: "contact-create",
           component: ContactCreate,
+        },
+        {
+          path: "contact/edit/:id",
+          name: "contact-edit",
+          component: ContactEdit,
+          props: true,
         },
         {
           path: "profile",
