@@ -13,6 +13,7 @@ import ContactEdit from "./components/Contact/ContactEdit.vue";
 import ContactDetail from "./components/Contact/ContactDetail.vue";
 import AddressCreate from "./components/Address/AddressCreate.vue";
 import AddressEdit from "./components/Address/AddressEdit.vue";
+import { useLocalStorage } from "@vueuse/core";
 
 const router = createRouter({
   routes: [
@@ -87,8 +88,22 @@ const router = createRouter({
       ],
     },
   ],
-
   history: createWebHistory(),
+});
+
+router.beforeEach((to, from, next) => {
+  const token = useLocalStorage("token", null);
+
+  if (to.name !== "login" && to.name !== "register" && !token.value) {
+    console.info("test1");
+    next({ name: "login" });
+  } else if ((to.name === "login" || to.name === "register") && token.value) {
+    console.info("test2");
+    next({ name: "dashboard" });
+  } else {
+    console.info("test3");
+    next();
+  }
 });
 
 createApp(App).use(router).mount("#app");
