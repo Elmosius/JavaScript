@@ -16,3 +16,18 @@ export const contactCreate = async (
     }),
   });
 };
+
+export const contactList = async (token, { name, email, phone, page }) => {
+  const url = new URL(`${import.meta.env.VITE_API_URL}/contacts`);
+  if (name) url.searchParams.append("name", name);
+  if (email) url.searchParams.append("email", email);
+  if (phone) url.searchParams.append("phone", phone);
+  if (page) url.searchParams.append("page", page);
+
+  return await fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: token,
+    },
+  });
+};

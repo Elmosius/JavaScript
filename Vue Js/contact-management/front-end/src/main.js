@@ -39,11 +39,11 @@ const router = createRouter({
     },
     {
       path: "/dashboard",
-      name: "dashboard",
       component: DashboardLayout,
       children: [
         {
           path: "",
+          name: "dashboard",
           component: ContactList,
         },
         {
