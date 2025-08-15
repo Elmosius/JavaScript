@@ -117,7 +117,10 @@ onBeforeMount(async () => {
           <div
             class="bg-gray-700 bg-opacity-50 p-5 rounded-lg border-2 border-dashed border-gray-600 shadow-md card-hover"
           >
-            <a href="add_address.html" class="block h-full">
+            <RouterLink
+              :to="`/dashboard/contact/detail/${id}/addresses/create`"
+              class="block h-full"
+            >
               <div
                 class="flex flex-col items-center justify-center h-full text-center py-4"
               >
@@ -128,7 +131,7 @@ onBeforeMount(async () => {
                 </div>
                 <h4 class="text-lg font-semibold text-white">Add Address</h4>
               </div>
-            </a>
+            </RouterLink>
           </div>
 
           <!-- Address Card 1 -->
