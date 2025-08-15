@@ -15,3 +15,16 @@ export const alertError = async (message) => {
     text: message,
   });
 };
+
+export const alertConfirm = async (message) => {
+  const result = await Swal.fire({
+    icon: "question",
+    title: "Are you sure?",
+    text: message,
+    showCancelButton: true,
+    confirmButtonText: "Yes",
+    cancelButtonText: "No",
+  });
+
+  return result.isConfirmed;
+};
