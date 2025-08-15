@@ -1,8 +1,9 @@
 <script setup>
 import { useLocalStorage } from "@vueuse/core";
-import { onBeforeMount, reactive } from "vue";
+import { onBeforeMount, reactive, ref } from "vue";
 import { contactDetail } from "../../lib/api/ContactApi.js";
-import { alertError } from "../../lib/alert.js";
+import { alertConfirm, alertError, alertSuccess } from "../../lib/alert.js";
+import { addressDelete, addressList } from "../../lib/api/AddressApi.js";
 
 const { id } = defineProps(["id"]);
 const token = useLocalStorage("token", null);
@@ -12,6 +13,19 @@ const contact = reactive({
   email: "",
   phone: "",
 });
+
+const addresses = ref([]);
+
+async function fetchAddress() {
+  const res = await addressList(token.value, id);
+  const data = await res.json();
+
+  if (res.status === 200) {
+    addresses.value = data.data;
+  } else {
+    await alertError("Address not found");
+  }
+}
 
 async function fetchContact() {
   const res = await contactDetail(token.value, id);
@@ -27,8 +41,23 @@ async function fetchContact() {
   }
 }
 
+async function handleDeleteAddress(idAddress) {
+  if (!(await alertConfirm("Are you sure you want to delete this address?"))) {
+    return;
+  }
+  const res = await addressDelete(token.value, id, idAddress);
+
+  if (res.status === 200) {
+    await alertSuccess("Address deleted successfully");
+    await fetchAddress();
+  } else {
+    await alertError("Address delete failed");
+  }
+}
+
 onBeforeMount(async () => {
   await fetchContact();
+  await fetchAddress();
 });
 </script>
 
@@ -136,9 +165,11 @@ onBeforeMount(async () => {
 
           <!-- Address Card 1 -->
           <div
+            v-for="(address, i) in addresses"
+            :key="address.id"
             class="bg-gray-700 bg-opacity-50 p-5 rounded-lg shadow-md border border-gray-600 card-hover"
           >
-            <div class="flex items-center mb-3">
+            <div class="flex items-center mb-3" v-if="i === 0">
               <div
                 class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3 shadow-md"
               >
@@ -146,53 +177,7 @@ onBeforeMount(async () => {
               </div>
               <h4 class="text-lg font-semibold text-white">Home Address</h4>
             </div>
-            <div class="space-y-3 text-gray-300 ml-2 mb-4">
-              <p class="flex items-center">
-                <i class="fas fa-road text-gray-500 w-6"></i>
-                <span class="font-medium w-24">Street:</span>
-                <span>123 Main St</span>
-              </p>
-              <p class="flex items-center">
-                <i class="fas fa-city text-gray-500 w-6"></i>
-                <span class="font-medium w-24">City:</span>
-                <span>New York</span>
-              </p>
-              <p class="flex items-center">
-                <i class="fas fa-map text-gray-500 w-6"></i>
-                <span class="font-medium w-24">Province:</span>
-                <span>NY</span>
-              </p>
-              <p class="flex items-center">
-                <i class="fas fa-flag text-gray-500 w-6"></i>
-                <span class="font-medium w-24">Country:</span>
-                <span>USA</span>
-              </p>
-              <p class="flex items-center">
-                <i class="fas fa-mailbox text-gray-500 w-6"></i>
-                <span class="font-medium w-24">Postal Code:</span>
-                <span>10001</span>
-              </p>
-            </div>
-            <div class="flex justify-end space-x-3">
-              <a
-                href="edit_address.html"
-                class="px-4 py-2 bg-gradient text-white rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-200 font-medium shadow-md flex items-center"
-              >
-                <i class="fas fa-edit mr-2"></i> Edit
-              </a>
-              <button
-                class="px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-200 font-medium shadow-md flex items-center"
-              >
-                <i class="fas fa-trash-alt mr-2"></i> Delete
-              </button>
-            </div>
-          </div>
-
-          <!-- Address Card 2 -->
-          <div
-            class="bg-gray-700 bg-opacity-50 p-5 rounded-lg shadow-md border border-gray-600 card-hover"
-          >
-            <div class="flex items-center mb-3">
+            <div class="flex items-center mb-3" v-else>
               <div
                 class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mr-3 shadow-md"
               >
@@ -204,37 +189,38 @@ onBeforeMount(async () => {
               <p class="flex items-center">
                 <i class="fas fa-road text-gray-500 w-6"></i>
                 <span class="font-medium w-24">Street:</span>
-                <span>456 Oak Ave</span>
+                <span>{{ address.street }}</span>
               </p>
               <p class="flex items-center">
                 <i class="fas fa-city text-gray-500 w-6"></i>
                 <span class="font-medium w-24">City:</span>
-                <span>San Francisco</span>
+                <span>{{ address.city }}</span>
               </p>
               <p class="flex items-center">
                 <i class="fas fa-map text-gray-500 w-6"></i>
                 <span class="font-medium w-24">Province:</span>
-                <span>CA</span>
+                <span>{{ address.province }}</span>
               </p>
               <p class="flex items-center">
                 <i class="fas fa-flag text-gray-500 w-6"></i>
                 <span class="font-medium w-24">Country:</span>
-                <span>USA</span>
+                <span>{{ address.country }}</span>
               </p>
               <p class="flex items-center">
                 <i class="fas fa-mailbox text-gray-500 w-6"></i>
                 <span class="font-medium w-24">Postal Code:</span>
-                <span>94102</span>
+                <span>{{ address.postal_code }}</span>
               </p>
             </div>
             <div class="flex justify-end space-x-3">
-              <a
-                href="edit_address.html"
+              <RouterLink
+                :to="`/dashboard/contact/detail/${id}/addresses/edit/${address.id}`"
                 class="px-4 py-2 bg-gradient text-white rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-200 font-medium shadow-md flex items-center"
               >
                 <i class="fas fa-edit mr-2"></i> Edit
-              </a>
+              </RouterLink>
               <button
+                @click="handleDeleteAddress(address.id)"
                 class="px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-200 font-medium shadow-md flex items-center"
               >
                 <i class="fas fa-trash-alt mr-2"></i> Delete

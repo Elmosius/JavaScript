@@ -12,6 +12,7 @@ import ContactCreate from "./components/Contact/ContactCreate.vue";
 import ContactEdit from "./components/Contact/ContactEdit.vue";
 import ContactDetail from "./components/Contact/ContactDetail.vue";
 import AddressCreate from "./components/Address/AddressCreate.vue";
+import AddressEdit from "./components/Address/AddressEdit.vue";
 
 const router = createRouter({
   routes: [
@@ -70,6 +71,12 @@ const router = createRouter({
           path: "contact/detail/:id/addresses/create",
           name: "contact-address-create",
           component: AddressCreate,
+          props: true,
+        },
+        {
+          path: "contact/detail/:id/addresses/edit/:addressId",
+          name: "contact-address-edit",
+          component: AddressEdit,
           props: true,
         },
         {
