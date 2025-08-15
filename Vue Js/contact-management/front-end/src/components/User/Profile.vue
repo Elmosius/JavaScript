@@ -7,6 +7,7 @@ import {
   userUpdateProfile,
 } from "../../lib/api/UserApi.js";
 import { alertError, alertSuccess } from "../../lib/alert.js";
+import Header from "../ui/Header.vue";
 
 const user = reactive({
   name: "",
@@ -57,10 +58,7 @@ async function handleUpdatePassword() {
 </script>
 
 <template>
-  <div class="flex items-center mb-6">
-    <i class="fas fa-user-cog text-blue-400 text-2xl mr-3"></i>
-    <h1 class="text-2xl font-bold text-white">My Profile</h1>
-  </div>
+  <Header title="My Profile" icon="user-cog" />
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <!-- Form 1: Edit Name -->
