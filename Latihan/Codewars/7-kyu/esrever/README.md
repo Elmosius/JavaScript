@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/5413759479ba273f8100003d/train/javascript target="_blank">esreveR</a></h2><h3>7 kyu</h3><p>Write a function <code>reverse</code> which reverses a list (or in clojure's case, any list-like data structure)</p><p>(the dedicated builtin(s) functionalities are deactivated)</p>
