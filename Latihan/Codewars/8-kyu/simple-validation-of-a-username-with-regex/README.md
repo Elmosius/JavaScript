@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/56a3f08aa9a6cc9b75000023/train/javascript target="_blank">Simple validation of a username with regex</a></h2><h3>8 kyu</h3><p>Write a simple regex to validate a username. Allowed characters are:</p><ul><li>lowercase letters,</li><li>numbers,</li><li>underscore</li></ul><p>Length should be between 4 and 16 characters (both included).</p>
