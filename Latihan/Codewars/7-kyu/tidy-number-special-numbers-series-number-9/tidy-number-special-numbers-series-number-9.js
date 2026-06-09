@@ -1,15 +1,13 @@
 function tidyNumber(n){
   n = String(n).split('')
   
-  let j = 0
   let result = true
-  for(let i = 1; i < n.length; i++){
-    if(n[j] > n[i]){
+  for(let i = 0; i < n.length; i++){
+    if(n[i] > n[i+1]){
       result = false
       break
     }
     
-    j++
   }
   
   return result
